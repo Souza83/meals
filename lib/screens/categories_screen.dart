@@ -7,9 +7,10 @@ class CategoriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Vamos Cozinhar?!'),
+        title: Text('Vamos Cozinhar???'),
       ),
       body: GridView(
+        padding: const EdgeInsets.all(25), //Espaçamentos nas laterais das grids
         //Renderiza as grids com scroll
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: 200, //Cada elemento com extenção de 200 px
