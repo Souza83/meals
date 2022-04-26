@@ -27,7 +27,29 @@ class MyApp extends StatelessWidget {
       routes: {
         AppRoutes.HOME: (ctx) => CategoriesScreen(),
         AppRoutes.CATEGORIES_MEALS: (ctx) => CategoriesMealsScreen(),
-        AppRoutes.MEAL_DETAIL: (ctx) => MealDetailScreen(),
+        //AppRoutes.MEAL_DETAIL: (ctx) => MealDetailScreen(),
+      },
+      /* // Cria rotas dinâmicas baseadas no nome da rota
+      onGenerateRoute: (settings) {
+        if (settings.name == '/alguma-rota') {
+          return null;
+        } else if (settings.name == '/outra-rota') {
+          return null;
+        } else {
+          return MaterialPageRoute(
+            builder: (_) {
+              return CategoriesScreen();
+            },
+          );
+        }
+      }, */
+      // onUnknownRoute função em caso de rota desconhecida (pag ñ encontrada)
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(
+          builder: (_) {
+            return CategoriesScreen();
+          },
+        );
       },
     );
   }
