@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import '../models/category.dart';
 import '../utils/app_routes.dart';
 
 class CategoryItem extends StatelessWidget {
   final Category category;
 
-  const CategoryItem(this.category);
+  CategoryItem(this.category);
 
   void _selectedCategory(BuildContext context) {
     Navigator.of(context).pushNamed(
@@ -20,8 +20,8 @@ class CategoryItem extends StatelessWidget {
     // InkWell/onTap detecta click
     return InkWell(
       onTap: () => _selectedCategory(context),
-      splashColor:
-          Theme.of(context).primaryColor, // Cor baseado no tema após clicar
+      // Cor baseado no tema após clicar
+      splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(15), //Borda arredondada
       child: Container(
         padding: const EdgeInsets.all(15),
