@@ -17,6 +17,12 @@
             "deviceId": "0045091182"
         },
         {
+            "name": "Moto G 5S Plus",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "10.0.0.131:5555"
+        },
+        {
             "name": "meals",
             "request": "launch",
             "type": "dart"
