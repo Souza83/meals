@@ -17,10 +17,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Meal> _availableMeals = DUMMY_MEALS;
-
   //Variável que grava/cria o estado da aplicação do Settings setadas
   Settings settings = Settings();
+
+  List<Meal> _availableMeals = DUMMY_MEALS;
+  List<Meal> _favoriteMeals = []; //Lista de refeição favorita
 
   void _filterMeals(Settings settings) {
     setState(() {
@@ -36,6 +37,15 @@ class _MyAppState extends State<MyApp> {
             !filterVegan &&
             !filterVegetarian;
       }).toList();
+    });
+  }
+
+  //Método que recebe aternância(toggle) de favoritos
+  void _toggleFavorite(Meal meal) {
+    setState(() {
+      _favoriteMeals.contains(meal)
+          ? _favoriteMeals.remove(meal) // Se contido remove
+          : _favoriteMeals.add(meal); // Senão remove
     });
   }
 
@@ -57,10 +67,10 @@ class _MyAppState extends State<MyApp> {
       ),
       // Cria rotas entre telas
       routes: {
-        AppRoutes.HOME: (ctx) => TabsScreen(),
+        AppRoutes.HOME: (ctx) => TabsScreen(_favoriteMeals), //Recebe favoritos
         AppRoutes.CATEGORIES_MEALS: (ctx) =>
             CategoriesMealsScreen(_availableMeals),
-        AppRoutes.MEAL_DETAIL: (ctx) => MealDetailScreen(),
+        AppRoutes.MEAL_DETAIL: (ctx) => MealDetailScreen(_toggleFavorite),
         AppRoutes.SETTINGS: (ctx) => SettingsScreen(settings, _filterMeals),
       },
     );

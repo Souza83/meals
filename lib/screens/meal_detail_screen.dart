@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import '../models/meal.dart';
 
 class MealDetailScreen extends StatelessWidget {
+  //Cria função para alternancia de favorito
+  final Function(Meal) onToggleFavorite;
+
+  const MealDetailScreen(this.onToggleFavorite);
+
   // Cria método para retornar o título
   Widget _createSectionTitle(BuildContext context, String title) {
     return Container(
@@ -90,7 +95,7 @@ class MealDetailScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.star),
         onPressed: () {
-          Navigator.of(context).pop(meal.title);
+          onToggleFavorite(meal);
         },
       ),
     );

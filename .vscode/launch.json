@@ -11,13 +11,13 @@
             "deviceId": "chrome"
         },
         {
-            "name": "Moto G 5S Plus",
+            "name": "MotoG5sPlusUSB",
             "request": "launch",
             "type": "dart",
             "deviceId": "0045091182"
         },
         {
-            "name": "Moto G 5S Plus",
+            "name": "MotoG5sPlusWifi",
             "request": "launch",
             "type": "dart",
             "deviceId": "10.0.0.131:5555"
@@ -45,7 +45,8 @@
             "name": "All Devices",
             "configurations": [
                 "Chrome",
-                "Moto G 5S Plus"
+                "MotoG5sPlusUSB",
+                "MotoG5sPlusWifi"
             ]
         }
     ]
